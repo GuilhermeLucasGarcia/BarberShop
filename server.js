@@ -193,7 +193,11 @@ app.patch('/api/bookings/:id', (req, res) => {
     res.json({ success: true, booking: bookings[index] });
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-});
+// Vercel serverless export vs local server
+if (process.env.VERCEL) {
+    module.exports = app;
+} else {
+    app.listen(PORT, () => {
+        console.log(`Server running at http://localhost:${PORT}`);
+    });
+}
