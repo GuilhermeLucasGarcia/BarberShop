@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1771380442687,
+    "name": "Guilhertme",
+    "phone": "1199999999999",
+    "date": "2026-02-17",
+    "time": "17:30",
+    "serviceId": "corte",
+    "username": "admin",
+    "status": "confirmed",
+    "createdAt": "2026-02-18T02:07:22.687Z"
+  },
+  {
+    "id": 1771380493236,
+    "name": "afasDF",
+    "phone": "11",
+    "date": "2026-02-18",
+    "time": "15:30",
+    "serviceId": "corte",
+    "username": "admin",
+    "status": "canceled",
+    "createdAt": "2026-02-18T02:08:13.236Z"
+  },
+  {
+    "id": 1771380708702,
+    "name": "Gui",
+    "phone": "123123512345243",
+    "date": "2026-02-17",
+    "time": "12:30",
+    "serviceId": "corte",
+    "username": "admin",
+    "status": "confirmed",
+    "createdAt": "2026-02-18T02:11:48.702Z"
+  },
+  {
+    "id": 1771380758467,
+    "name": "vzxcvzxc",
+    "phone": "zxcvzxcv",
+    "date": "2026-02-17",
+    "time": "13:00",
+    "serviceId": "corte",
+    "username": "admin",
+    "status": "confirmed",
+    "createdAt": "2026-02-18T02:12:38.467Z"
+  }
+]

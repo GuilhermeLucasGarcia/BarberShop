@@ -1,0 +1,14 @@
+{
+  "openTime": "09:00",
+  "closeTime": "18:00",
+  "slotMin": 30,
+  "daysOpen": [
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
+  ],
+  "googleClientId": ""
+}

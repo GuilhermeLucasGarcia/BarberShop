@@ -1,0 +1,26 @@
+[
+  {
+    "id": "corte",
+    "name": "Corte de Cabelo",
+    "durationMin": 30,
+    "price": 40
+  },
+  {
+    "id": "barba",
+    "name": "Barba",
+    "durationMin": 30,
+    "price": 30
+  },
+  {
+    "id": "combo",
+    "name": "Corte + Barba",
+    "durationMin": 60,
+    "price": 65
+  },
+  {
+    "id": "sombrancelha",
+    "name": "Sombrancelha",
+    "durationMin": 60,
+    "price": 65
+  }
+]

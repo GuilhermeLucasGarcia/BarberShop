@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - Barbershop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <div class="brand">BARBERSHOP</div>
+        <div class="nav-links" style="display: flex; gap: 16px; margin-left: auto; align-items: center;">
+             <a href="appointments.html" class="nav-link" style="color: var(--text); text-decoration: none; font-weight: 600; font-size: 14px;">Meus Agendamentos</a>
+             <button id="logoutBtn" class="logout-btn" style="margin-left: 0;">Sair</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Service Selection -->
+        <div class="card">
+            <h2>Selecione o Serviço</h2>
+            <div class="service-row">
+                <select id="serviceSelect">
+                    <option value="" disabled selected>Carregando...</option>
+                </select>
+                <div id="priceTag" class="price">R$ 0,00</div>
+            </div>
+        </div>
+
+        <!-- Date Selection -->
+        <div class="card">
+            <h2>Escolha a Data</h2>
+            <input type="date" id="dateInput">
+        </div>
+
+        <!-- Time Slots -->
+        <div class="card">
+            <h2>Horários Disponíveis</h2>
+            <div id="slotsGrid" class="slots">
+                <div class="empty-slots">Selecione um serviço e data</div>
+            </div>
+        </div>
+
+        <!-- Client Details -->
+        <div class="card">
+            <h2>Confirmar Agendamento</h2>
+            <div class="form">
+                <div class="input-group" style="margin-bottom: 0;">
+                    <label for="nameInput">Nome Completo</label>
+                    <input type="text" id="nameInput" placeholder="Seu Nome Completo">
+                </div>
+                <div class="input-group" style="margin-bottom: 0;">
+                    <label for="phoneInput">Telefone</label>
+                    <input type="tel" id="phoneInput" placeholder="Seu Telefone (WhatsApp)">
+                </div>
+                <button id="bookBtn" class="btn" style="margin-top: 10px;">Confirmar Agendamento</button>
+                <div id="feedback" class="feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Barbershop System
+    </div>
+
+    <script>
+        // Check Auth
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+            window.location.href = '/login.html';
+        }
+
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('authToken');
+            window.location.href = '/login.html';
+        });
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>

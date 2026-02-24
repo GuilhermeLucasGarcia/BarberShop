@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Agendamentos - Barbershop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .appointment-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .appointment-card {
+            background: #fff;
+            border: 1px solid var(--input-border);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .appointment-card:hover {
+            border-color: var(--text);
+            box-shadow: var(--shadow);
+        }
+
+        .appointment-info h3 {
+            margin: 0 0 4px 0;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .appointment-meta {
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .status-confirmed { background: #e8f5e9; color: #2e7d32; }
+        .status-pending { background: #fff3e0; color: #ef6c00; }
+        .status-canceled { background: #ffebee; color: #c62828; }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--input-border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: transparent;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 32px;
+        }
+
+        .page-btn {
+            padding: 8px 12px;
+            border: 1px solid var(--input-border);
+            background: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .page-btn.active {
+            background: var(--text);
+            color: #fff;
+            border-color: var(--text);
+        }
+
+        @media (max-width: 600px) {
+            .appointment-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="brand">BARBERSHOP <span>•</span></div>
+        <div class="nav-links" style="display: flex; gap: 16px; margin-left: auto; align-items: center;">
+             <a href="index.html" class="nav-link" style="color: var(--text); text-decoration: none; font-weight: 600; font-size: 14px;">Novo Agendamento</a>
+             <button id="logoutBtn" class="logout-btn" style="margin-left: 0;">Sair</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>Meus Agendamentos</h2>
+            
+            <div class="filters">
+                <input type="text" id="searchInput" placeholder="Buscar por serviço...">
+                <select id="statusFilter">
+                    <option value="">Todos os Status</option>
+                    <option value="confirmed">Confirmado</option>
+                    <option value="pending">Pendente</option>
+                    <option value="canceled">Cancelado</option>
+                </select>
+                <input type="date" id="dateFilterStart" placeholder="Data Inicial">
+                <input type="date" id="dateFilterEnd" placeholder="Data Final">
+                <select id="sortOrder">
+                    <option value="desc">Mais recentes primeiro</option>
+                    <option value="asc">Mais antigos primeiro</option>
+                </select>
+            </div>
+
+            <div id="loading" style="text-align: center; padding: 40px; display: none;">
+                Carregando agendamentos...
+            </div>
+
+            <div id="errorMsg" style="text-align: center; color: var(--danger); padding: 20px; display: none;"></div>
+
+            <div id="appointmentsList" class="appointment-list">
+                <!-- Items rendered here -->
+            </div>
+
+            <div id="pagination" class="pagination"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Barbershop System
+    </div>
+
+    <script src="appointments.js"></script>
+</body>
+</html>
